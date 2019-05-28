@@ -1,6 +1,7 @@
 'use strict';
 
 let theServer = null;
+let deviceInfoServiceUudi = '0000180a-0000-1000-8000-00805f9b34fb';
 
 function onConnected() {
     document.querySelector('#progressbar').classList.add('hidden');
