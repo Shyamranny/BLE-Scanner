@@ -26,20 +26,28 @@
         <dialog class="mdl-dialog">
             <h4 class="mdl-dialog__title">Connect</h4>
             <div class="mdl-dialog__content">
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="optionalServices" placeholder="Bluetooth Services (e.g. generic_access, 0x1234)"/>
+                    <label class="mdl-textfield__label" for="optionalServices">Services(Opional)</label>
+                    <span class="mdl-textfield__error">Only numbers and no spaces, please!</span>
+                </div>
+
                 <div id = "progressbar" class = "mdl-progress mdl-js-progress mdl-progress__indeterminate hidden"></div>
+                
+                <div class="mdl-dialog__actions mdl-dialog__actions--full-width ">
+                    <button type="button" class="connect-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        <i class="material-icons">bluetooth</i> Connect
+                    </button>
+                </div>
             </div>
-            <div class="mdl-dialog__actions mdl-dialog__actions--full-width ">
-                <button type="button" class="connect-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                    <i class="material-icons">bluetooth</i> Connect
-                </button>
-            </div>
+            
         </dialog>
 
         <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
-            <div class="mdl-snackbar__text"></div>
-            <button type="button" class="mdl-snackbar__action"></button>
-        </div>
-
+                <div class="mdl-snackbar__text"></div>
+                <button type="button" class="mdl-snackbar__action"></button>
+            </div>
         <script src="app.js"></script>
 
         <script>

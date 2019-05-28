@@ -20,9 +20,14 @@ function connect() {
     document.querySelector('.connect-button').setAttribute("disabled","");
     document.querySelector('#progressbar').classList.remove('hidden');
 
+    // Validate services UUID entered by user first.
+    let optionalServices = document.querySelector('#optionalServices').value
+    .split(/, ?/).map(s => s.startsWith('0x') ? parseInt(s) : s)
+    .filter(s => s && BluetoothUUID.getService);
+
     navigator.bluetooth.requestDevice(
     {
-        acceptAllDevices: true
+        acceptAllDevices: true, optionalServices: optionalServices
     })
     .then(device => {
         console.log('> Found ' + device.name);
