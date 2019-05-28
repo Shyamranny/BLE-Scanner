@@ -34,6 +34,23 @@ function connect() {
         theServer = server;
         console.log('Gatt connected');
         onConnected();
+
+        log('Getting Services...');
+        return server.getPrimaryServices();
+    })
+    .then(services => {
+        log('Getting Characteristics...');
+        let queue = Promise.resolve();
+        services.forEach(service => {
+          queue = queue.then(_ => service.getCharacteristics().then(characteristics => {
+            log('> Service: ' + service.uuid);
+            characteristics.forEach(characteristic => {
+              log('>> Characteristic: ' + characteristic.uuid + ' ' +
+                  getSupportedProperties(characteristic));
+            });
+          }));
+        });
+        return queue;
     })
     .catch(error => {
         console.log('Argh! ' + error);
@@ -46,4 +63,14 @@ function connect() {
             }
         );
     });
+}
+
+function getSupportedProperties(characteristic) {
+    let supportedProperties = [];
+    for (const p in characteristic.properties) {
+      if (characteristic.properties[p] === true) {
+        supportedProperties.push(p.toUpperCase());
+      }
+    }
+    return '[' + supportedProperties.join(', ') + ']';
 }
