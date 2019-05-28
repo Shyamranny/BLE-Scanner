@@ -1,0 +1,97 @@
+body {
+    background: #fff;
+}
+
+.app-layout {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    background: #fff;
+    /* max-width: 1000px; */
+    width: 100%;
+}
+
+.app-layout main {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+}
+
+i.material-icons {
+    max-width: 24px;
+}
+
+.color-buttons {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.power-button {
+    text-align: center;
+}
+
+.mic-button {
+    margin-top: 2pc;
+} 
+
+/* .power-button {
+    margin-bottom: 2pc;
+} */
+
+.hidden {
+    display: none;
+}
+.test-suite {
+    display: block; 
+    justify-content: space-between;
+    padding-top: 1em;
+}
+.on {
+    background: yellow !important;
+}
+
+.off{
+    background: darkgray !important;
+}
+
+div.contro .mdl-textfield {
+    width: 70%;
+}
+.things{
+    display: flex; 
+    justify-content: space-evenly;
+}
+.boxer{
+    padding: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(53, 36, 36, 0.2), 0 1px 5px 0 rgba(0,0,0,.12);	
+    margin-bottom: 20px;
+}
+.controls{
+    display: flex; 
+    justify-content: space-evenly;
+}
+.heading{
+    font-size: 2em;
+    padding-right: 2em;
+}
+table{
+    margin: auto;
+}
+.graybox table{
+    width: 100%;
+}
+.twenty-px{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.commands-table {
+    margin-bottom: 20px;
+}
+div.title{
+    width: 100%;
+    text-align: center;
+}
+div.small{
+    font-size: x-small;
+}
