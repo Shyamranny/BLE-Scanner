@@ -1,5 +1,7 @@
 'use strict';
 
+let theServer = null;
+
 function onConnected() {
     document.querySelector('#progressbar').classList.add('hidden');
     document.querySelector('.connect-button').removeAttribute("disabled");
@@ -27,6 +29,11 @@ function connect() {
         console.log('Connecting to GATT Server...');
         device.addEventListener('gattserverdisconnected', onDisconnected)
         return device.gatt.connect();
+    })
+    .then(server => {
+        theServer = server;
+        console.log('Gatt connected');
+        onConnected();
     })
     .catch(error => {
         console.log('Argh! ' + error);
